@@ -38,6 +38,7 @@ main {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
+  text-align: center;
 }
 
 footer {
@@ -49,29 +50,31 @@ footer {
 }
 
 
+nav {
+    text-align: center;
+}
+
 nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav li {
-  display: inline-block;
-  margin: 0 0.75rem;
+    display: inline-block;
+    margin: 0 10px;
 }
 
 nav a {
-  text-decoration: none;
-  color: var(--brand);
-  font-weight: bold;
+    color: var(--brand);
+    text-decoration: none;
 }
 
 nav a:hover {
-  text-decoration: underline;
+    color: var(--dark-ink);
 }
 
-
-.place-card {
+.product-card {
   background-color: var(--card-bg);
   border-radius: 8px;
   padding: 1.25rem; /* At least 16px (20px) */
@@ -80,16 +83,25 @@ nav a:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.place-card h3 {
+.product-card h3 {
   font-size: 1.35rem;
   color: var(--brand);
   margin-top: 0;
 }
 
-.place-card img {
+.product-card img {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
+}
+
+.product-card a {
+  color: var(--brand);
+   text-decoration: none;
+}
+
+.product-card a:hover {
+  color: var(--dark-ink);
 }
 
 
@@ -161,4 +173,10 @@ textarea:focus,
 button:focus {
   outline: 3px solid var(--brand);
   outline-offset: 2px;
+}
+
+footer {
+color: var(--brand);
+background-color: var(--card-bg);
+border-top: 3px solid var(--border-color);
 }
