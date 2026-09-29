@@ -22,7 +22,8 @@
     "side     main"
     "foot     foot";
   gap: 16px;
-  align-items: start;
+  /* stretch = the sidebar matches main's full height (first heading to last card) */
+  align-items: stretch;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem 1rem;
