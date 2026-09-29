@@ -12,6 +12,27 @@
   box-sizing: border-box;
 }
 
+
+/* ── Page skeleton: named grid areas (Lesson 7.4) ── */
+.page {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-areas:
+    "masthead masthead"
+    "side     main"
+    "foot     foot";
+  gap: 16px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
+}
+
+header { grid-area: masthead; }
+aside  { grid-area: side; }
+main   { grid-area: main; }
+footer { grid-area: foot; }
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -39,8 +60,7 @@ header h1 {
 }
 
 main {
-  max-width: 800px;
-  margin: 2rem auto;
+  margin: 0;
   padding: 0 1rem;
   text-align: center;
 }
@@ -48,9 +68,9 @@ main {
 footer {
   text-align: center;
   padding: 1.5rem;
-  color: var(--muted-grey);
-  border-top: 1px solid var(--border-color);
-  margin-top: 3rem;
+  color: var(--brand);
+  background-color: var(--card-bg);
+  border-top: 3px solid var(--border-color);
 }
 
 
@@ -111,6 +131,68 @@ nav a:hover {
 
 .product-card a:hover {
   color: var(--dark-ink);
+}
+
+
+/* ── Sidebar (grid area "side") ── */
+aside {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border-left: 6px solid var(--brand);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 1.25rem;
+  text-align: left;
+}
+
+aside h2 {
+  font-size: 1.1rem;
+  color: var(--brand);
+  margin: 0;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside h2 + nav,
+aside h2 + ul {
+  margin-top: 0.5rem;
+}
+
+aside nav + h2,
+aside ul + h2 {
+  margin-top: 1.25rem;
+}
+
+aside li {
+  margin-bottom: 0.5rem;
+}
+
+aside li:last-child {
+  margin-bottom: 0;
+}
+
+aside a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+aside a:hover {
+  color: var(--dark-ink);
+}
+
+/* The header nav is one horizontal flex row; the sidebar nav stacks vertically */
+aside nav {
+  text-align: left;
+}
+
+aside nav ul {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 
@@ -184,8 +266,14 @@ button:focus {
   outline-offset: 2px;
 }
 
-footer {
-color: var(--brand);
-background-color: var(--card-bg);
-border-top: 3px solid var(--border-color);
+/* ── Small screens: same named areas, one column ── */
+@media (max-width: 760px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "masthead"
+      "side"
+      "main"
+      "foot";
+  }
 }
